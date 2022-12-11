@@ -21,8 +21,9 @@ public class Main
             kafkaProps.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
 
             KafkaProducer<String, String> producer = new KafkaProducer<String, String>(kafkaProps);
-            ProducerRecord<String, String> record = new ProducerRecord<>("user_ids", "Biomedical Materials", "USA");
-            producer.send(record).get();
+            ProducerRecord<String, String> record = new ProducerRecord<>("user_ids", "Biomedical Materials", "ID");
+            producer.send(record, new ProducerCallback());
+            producer.close();
         } catch (Exception e) {
             e.printStackTrace();
         }

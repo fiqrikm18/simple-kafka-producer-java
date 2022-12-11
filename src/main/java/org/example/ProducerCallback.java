@@ -8,6 +8,8 @@ public class ProducerCallback implements Callback {
     public void onCompletion(RecordMetadata recordMetadata, Exception e) {
         if (e != null) {
             e.printStackTrace();
+        } else {
+            System.out.println("Sending Success");
         }
     }
 }
